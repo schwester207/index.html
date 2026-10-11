@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#263d32">
+
+  <title>Dream Forest 🌿</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>🌿 Dream Forest</h1>
+
+    <p>Deine kleine magische Welt</p>
+
+    <nav>
+
+      <button data-page="home">🏡 Start</button>
+
+      <button data-page="world">🌲 Wald</button>
+
+      <button data-page="diary">📖 Tagebuch</button>
+
+      <button data-page="gallery">🖼️ Galerie</button>
+
+      <button data-page="collection">✨ Sammlung</button>
+
+      <button data-page="sounds">🎵 Klänge</button>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section id="home" class="page active">
+
+      <div class="hero">
+
+        <span class="moon">☾</span>
+
+        <h2>Willkommen im Zauberwald</h2>
+
+        <p>Entdecke kleine Geheimnisse, sammle Blüten und erschaffe deine eigene Welt.</p>
+
+        <button class="primary" data-page="world">Abenteuer starten →</button>
+
+      </div>
+
+      <div class="stats">
+
+        <div>🌼 <strong id="homeFlowers">0</strong><small>Blüten</small></div>
+
+        <div>📖 <strong id="homeEntries">0</strong><small>Einträge</small></div>
+
+        <div>🏆 <strong id="homeBadges">0</strong><small>Erfolge</small></div>
+
+      </div>
+
+      <h2>Deine Möglichkeiten</h2>
+
+      <div class="cards">
+
+        <button class="card" data-page="world">🌲<b>Wald erkunden</b><small>Finde Blüten und Geheimnisse.</small></button>
+
+        <button class="card" data-page="diary">📖<b>Tagebuch</b><small>Speichere deine Gedanken.</small></button>
+
+        <button class="card" data-page="gallery">🌷<b>Galerie</b><small>Bewahre deine Lieblingsbilder auf.</small></button>
+
+        <button class="card" data-page="collection">💎<b>Sammlung</b><small>Schau dir deine Erfolge an.</small></button>
+
+      </div>
+
+    </section>
+
+    <section id="world" class="page">
+
+      <h2>🌲 Der Zauberwald</h2>
+
+      <p>Bewege dich mit den Pfeilen und sammle die Blüten!</p>
+
+      <div class="game-info">🌼 Blüten: <strong id="score">0</strong></div>
+
+      <div id="game" aria-label="Interaktiver Wald"></div>
+
+      <div class="controls">
+
+        <button data-move="up">▲</button>
+
+        <div>
+
+          <button data-move="left">◀</button>
+
+          <button data-move="down">▼</button>
+
+          <button data-move="right">▶</button>
+
+        </div>
+
+      </div>
+
+      <p id="gameMessage">Dein Abenteuer beginnt!</p>
+
+      <div id="secret" class="card">🔒 Sammle 5 Blüten, um das Geheimnis freizuschalten.</div>
+
+    </section>
+
+    <section id="diary" class="page">
+
+      <h2>📖 Mein Tagebuch</h2>
+
+      <p>Was möchtest du heute festhalten?</p>
+
+      <form id="diaryForm">
+
+        <label for="diaryTitle">Überschrift</label>
+
+        <input id="diaryTitle" placeholder="Ein schöner Tag ..." required maxlength="70">
+
+        <label for="diaryText">Deine Gedanken</label>
+
+        <textarea id="diaryText" rows="5" placeholder="Heute habe ich ..." required maxlength="1200"></textarea>
+
+        <button class="primary">Eintrag speichern ♡</button>
+
+      </form>
+
+      <div id="entries"></div>
+
+    </section>
+
+    <section id="gallery" class="page">
+
+      <h2>🖼️ Meine Galerie</h2>
+
+      <p>Wähle Bilder von deinem iPhone aus.</p>
+
+      <label class="upload">
+
+        <span>＋</span>
+
+        Bild hinzufügen
+
+        <input type="file" id="imageUpload" accept="image/*" multiple>
+
+      </label>
+
+      <div id="galleryGrid" class="gallery-grid"></div>
+
+    </section>
+
+    <section id="collection" class="page">
+
+      <h2>✨ Deine Schatzkammer</h2>
+
+      <div class="stats">
+
+        <div>🌼 <strong id="flowersTotal">0</strong><small>Blüten</small></div>
+
+        <div>📖 <strong id="entriesTotal">0</strong><small>Seiten</small></div>
+
+        <div>🖼️ <strong id="imagesTotal">0</strong><small>Bilder</small></div>
+
+      </div>
+
+      <h3>🏆 Deine Erfolge</h3>
+
+      <div id="achievements"></div>
+
+      <button id="reset" class="quiet">Fortschritt zurücksetzen</button>
+
+    </section>
+
+    <section id="sounds" class="page">
+
+      <h2>🎵 Klanggarten</h2>
+
+      <p>Erzeuge kleine elektronische Klänge direkt in deinem Browser.</p>
+
+      <div class="sound-card">
+
+        <div class="sound-orb">☾</div>
+
+        <h3>Wald bei Nacht</h3>
+
+        <button class="sound-toggle" data-tone="rain">🌧️ Regentropfen: <span>Aus</span></button>
+
+        <button class="sound-toggle" data-tone="chime">✨ Zauberglocken: <span>Aus</span></button>
+
+        <button class="sound-toggle" data-tone="bird">🐦 Waldvögel: <span>Aus</span></button>
+
+        <p class="small">Tippe erneut, um einen Klang auszuschalten.</p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>🌿 Dream Forest · Kleine Welt, große Träume ♡</footer>
+
+  <div id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
